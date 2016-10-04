@@ -31,9 +31,7 @@
     <div id="search">
       <input type="text" placeholder="Search for nicknames, interests or tags"  />
     </div>
-    <!-- <div id="post">
-      <textarea></textarea>
-    </div> -->
+
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -71,7 +69,6 @@
           return '<span class="' + item.type + '"><img src="' + item.icon + '" />' + item.name + '</span>';
         }
       },
-
       list: {
         match: {
           enabled: true
@@ -82,57 +79,14 @@
         onChooseEvent: function() {
           var value = $("#search input").getSelectedItemData();
           if (value.name === '#cat') {
-            $('#feed').attr('src', 'images/feed-filtered.png');
-            registerRefresh();
-            showNotifier();
+            window.location = './scenario-1b-part-2.html';
           }
         }
       }
     };
 
-    function showNotifier () {
-      setTimeout(function () {
-        $('#notifier').show();
-      }, 2000);
-    }
-
-
     $("#search input").easyAutocomplete(options);
 
-    function registerRefresh () {
-      $('.refresh').on('click', function () {
-        $('#feed').attr('src', 'images/feed-filtered-updated.png');
-        $('#notifier').hide();
-      });
-    }
-
-
-
-
-    // $("body").on('click', '#all', function () {
-    // });
-
-    // $('#post textarea').textcomplete([
-    //   {
-    //     match: /\B#(\w*)$/,
-    //     words: ['cat', 'kitten', 'caturday', 'github'],
-    //     search: function (term, callback) {
-    //         callback($.map(this.words, function (word) {
-    //             return word.indexOf(term) === 0 ? word : null;
-    //         }));
-    //     },
-    //     index: 1,
-    //     replace: function (word) {
-    //         return '#' + word + ' ';
-    //     }
-    // }
-    // ], {
-    //     onKeydown: function (e, commands) {
-    //         if (e.ctrlKey && e.keyCode === 74) { // CTRL-J
-    //             return commands.KEY_ENTER;
-    //         }
-    //     }
-    // });
   </script>
 
 </body>

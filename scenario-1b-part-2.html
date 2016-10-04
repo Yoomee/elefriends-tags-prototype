@@ -18,12 +18,12 @@
     <img src="images/feed-background.jpg" />
 
     <div class="feed-column">
-      <img id="post-box" src="images/post-box-closed.png" />
-      <img id="tabs" src="images/feed-tabs.png" />
+      <img id="header" src="images/feed-filtered-header.png" />
+      <img id="post-box" src="images/post-box-small-closed.png" />
       <div id="notifier" class="refresh" style="display: none">
         <img src="images/feed-notifier.png" />
       </div>
-      <img id="feed" src="images/feed-standard.png" />
+      <img id="feed" src="images/feed-filtered.png" />
 
       <div class="refresh refresh-button"></div>
     </div>
@@ -31,9 +31,6 @@
     <div id="search">
       <input type="text" placeholder="Search for nicknames, interests or tags"  />
     </div>
-    <!-- <div id="post">
-      <textarea></textarea>
-    </div> -->
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -71,24 +68,25 @@
           return '<span class="' + item.type + '"><img src="' + item.icon + '" />' + item.name + '</span>';
         }
       },
-
       list: {
         match: {
           enabled: true
         },
         onLoadEvent: function () {
+          console.log('load');
           $('.easy-autocomplete-container ul').append('<li id="all"><a href="#">Not what you\'re looking for? <span>See more results</span></a></li>');
         },
         onChooseEvent: function() {
           var value = $("#search input").getSelectedItemData();
           if (value.name === '#cat') {
-            $('#feed').attr('src', 'images/feed-filtered.png');
-            registerRefresh();
-            showNotifier();
+            window.location = './scenario-1b-part-2.html';
           }
         }
       }
     };
+
+    registerRefresh();
+    showNotifier();
 
     function showNotifier () {
       setTimeout(function () {
@@ -106,33 +104,6 @@
       });
     }
 
-
-
-
-    // $("body").on('click', '#all', function () {
-    // });
-
-    // $('#post textarea').textcomplete([
-    //   {
-    //     match: /\B#(\w*)$/,
-    //     words: ['cat', 'kitten', 'caturday', 'github'],
-    //     search: function (term, callback) {
-    //         callback($.map(this.words, function (word) {
-    //             return word.indexOf(term) === 0 ? word : null;
-    //         }));
-    //     },
-    //     index: 1,
-    //     replace: function (word) {
-    //         return '#' + word + ' ';
-    //     }
-    // }
-    // ], {
-    //     onKeydown: function (e, commands) {
-    //         if (e.ctrlKey && e.keyCode === 74) { // CTRL-J
-    //             return commands.KEY_ENTER;
-    //         }
-    //     }
-    // });
   </script>
 
 </body>
