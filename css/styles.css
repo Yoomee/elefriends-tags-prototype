@@ -1,0 +1,70 @@
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: helvetica, arial, sans-serif;
+    }
+    .banner {
+      width: 100%;
+      background: #333;
+      padding: 8px;
+    }
+
+    h1 {
+      font-size: 18px;
+      color: white;
+    }
+
+    .image-holder {
+      position: relative;
+      width: 1200px;
+      margin: 0 auto;
+    }
+    .image-holder img {
+      width: 100%;
+    }
+
+    .feed-column {
+      width: 640px;
+      position: absolute;
+      top: 160px;
+      left: 90px;
+    }
+
+    #search {
+      position: absolute;
+      display: block;
+      width: 304px;
+      height: 42px;
+      right: 115px;
+      top: 218px;
+
+    }
+    #search .easy-autocomplete {
+      width: 100%!important;
+    }
+    #search input {
+      width: 100%;
+      border: none;
+      font-size: 14px;
+      padding: 12px;
+      box-shadow: none;
+    }
+    #post {
+      position: absolute;;
+      display: block;
+      background: red;
+      width: 454px;
+      height: 59px;
+      left: 226px;
+      top: 274px;
+
+    }
+    #post textarea {
+      width: 100%;
+      height: 100%;
+      border: none;
+      font-size: 14px;
+      padding: 12px;
+    }

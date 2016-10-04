@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/easy-autocomplete.css">
+</head>
+<body>
+  <div class="banner">
+    <h1>Scenario 1: Finding conversations</h1>
+  </div>
+  <div class="image-holder">
+    <img src="images/feed-background.jpg" />
+
+    <div class="feed-column">
+      <img id="feed" src="images/feed-standard.jpg" />
+    </div>
+
+    <div id="search">
+      <input type="text" placeholder="Search for nicknames, interests or tags"  />
+    </div>
+    <!-- <div id="post">
+      <textarea></textarea>
+    </div> -->
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
+
+  <script src="js/jquery.easy-autocomplete.min.js"></script>
+  <script src="js/jquery.textcomplete.min.js"></script>
+
+  <script>
+
+    var data = [
+      {
+        name: '#cat',
+        type: 'tag',
+        icon: 'http://fillmurray.com/300/300'
+      },
+      {
+        name: 'Tim',
+        type: 'user',
+        icon: 'http://placekitten.com/300/300'
+      },
+      {
+        name: 'Nick',
+        type: 'bio',
+        icon: 'http://placecage.com/300/300'
+      }
+    ];
+
+    var options = {
+      data: data,
+      getValue: 'name',
+      template: {
+        type: "custom",
+        method: function(value, item) {
+          return '<span class="' + item.type + '"><img src="' + item.icon + '" />' + item.name + '</span>';
+        }
+      },
+
+      list: {
+        match: {
+          enabled: true
+        },
+        onLoadEvent: function () {
+          console.log('load');
+          $('.easy-autocomplete-container ul').append('<li id="all"><a href="#">View all</a></li>');
+        },
+        onChooseEvent: function() {
+          var value = $("#search input").getSelectedItemData();
+          if (value.name === '#cat') {
+            console.log('jjjj');
+            $('#feed').attr('src', 'images/feed-filtered.png');
+          }
+        }
+      }
+    };
+
+
+    $("#search input").easyAutocomplete(options);
+
+
+    // $("body").on('click', '#all', function () {
+    //   console.log('clicked all');
+    // });
+
+    // $('#post textarea').textcomplete([
+    //   {
+    //     match: /\B#(\w*)$/,
+    //     words: ['cat', 'kitten', 'caturday', 'github'],
+    //     search: function (term, callback) {
+    //         callback($.map(this.words, function (word) {
+    //             return word.indexOf(term) === 0 ? word : null;
+    //         }));
+    //     },
+    //     index: 1,
+    //     replace: function (word) {
+    //         return '#' + word + ' ';
+    //     }
+    // }
+    // ], {
+    //     onKeydown: function (e, commands) {
+    //         if (e.ctrlKey && e.keyCode === 74) { // CTRL-J
+    //             return commands.KEY_ENTER;
+    //         }
+    //     }
+    // });
+  </script>
+
+</body>
+</html>
