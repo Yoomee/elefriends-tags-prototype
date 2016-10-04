@@ -18,7 +18,14 @@
     <img src="images/feed-background.jpg" />
 
     <div class="feed-column">
-      <img id="feed" src="images/feed-standard.jpg" />
+      <img id="post-box" src="images/post-box-closed.png" />
+      <img id="tabs" src="images/feed-tabs.png" />
+      <div id="notifier" class="refresh" style="display: none">
+        <img src="images/feed-notifier.png" />
+      </div>
+      <img id="feed" src="images/feed-standard.png" />
+
+      <div class="refresh refresh-button"></div>
     </div>
 
     <div id="search">
@@ -71,20 +78,37 @@
         },
         onLoadEvent: function () {
           console.log('load');
-          $('.easy-autocomplete-container ul').append('<li id="all"><a href="#">View all</a></li>');
+          $('.easy-autocomplete-container ul').append('<li id="all"><a href="#">Not what you\'re looking for? <span>See more results</span></a></li>');
         },
         onChooseEvent: function() {
           var value = $("#search input").getSelectedItemData();
           if (value.name === '#cat') {
             console.log('jjjj');
             $('#feed').attr('src', 'images/feed-filtered.png');
+            registerRefresh();
+            showNotifier();
           }
         }
       }
     };
 
+    function showNotifier () {
+      setTimeout(function () {
+        $('#notifier').show();
+      }, 2000);
+    }
+
 
     $("#search input").easyAutocomplete(options);
+
+    function registerRefresh () {
+      $('.refresh').on('click', function () {
+        $('#feed').attr('src', 'images/feed-filtered-updated.png');
+        $('#notifier').hide();
+      });
+    }
+
+
 
 
     // $("body").on('click', '#all', function () {

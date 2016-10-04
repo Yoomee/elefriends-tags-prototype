@@ -32,6 +32,15 @@
       left: 90px;
     }
 
+    .refresh-button {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      top: 263px;
+      left: 20px;
+      cursor: pointer;
+    }
+
     #search {
       position: absolute;
       display: block;
@@ -45,11 +54,14 @@
       width: 100%!important;
     }
     #search input {
-      width: 100%;
+      width: 90%;
       border: none;
-      font-size: 14px;
-      padding: 12px;
+      font-size: 13px;
+      padding: 12px 10px;
       box-shadow: none;
+    }
+    #search input:focus {
+      outline:none;
     }
     #post {
       position: absolute;;
