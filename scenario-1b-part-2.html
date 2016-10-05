@@ -12,20 +12,20 @@
 </head>
 <body>
   <div class="banner">
-    <h1>Scenario 1: Finding conversations</h1>
+    <h1>Elefriends Prototype: Finding conversations</h1>
   </div>
   <div class="image-holder">
-    <img src="images/feed-background.jpg" />
+    <img src="images/feed-bg.jpg" />
 
     <div class="feed-column">
-      <img id="header" src="images/feed-filtered-header.png" />
-      <img id="post-box" src="images/post-box-small-closed.png" />
+      <img id="header" src="images/feed-filtered-header.jpg" />
+      <img id="post-box" src="images/post-box-small-closed.jpg" />
       <div id="notifier" class="refresh" style="display: none">
-        <img src="images/feed-notifier.png" />
+        <img src="images/feed-notifier.jpg" />
       </div>
-      <img id="feed" src="images/feed-filtered.png" />
+      <img id="feed" src="images/feed-filtered.jpg" />
 
-      <div class="refresh refresh-button"></div>
+      <div class="refresh refresh-button refresh-button-2"></div>
     </div>
 
     <div id="search">
@@ -99,7 +99,7 @@
 
     function registerRefresh () {
       $('.refresh').on('click', function () {
-        $('#feed').attr('src', 'images/feed-filtered-updated.png');
+        $('#feed').attr('src', 'images/feed-filtered-updated.jpg');
         $('#notifier').hide();
       });
     }
