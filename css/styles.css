@@ -121,3 +121,12 @@
       border-radius: 3px;
       padding: 2px;
     }
+
+    #user {
+      position: absolute;
+      width: 144px;
+      height: 62px;
+      top: 486px;
+      left: 270px;
+      cursor: pointer;
+    }
