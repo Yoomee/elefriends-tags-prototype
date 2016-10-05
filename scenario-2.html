@@ -12,21 +12,21 @@
 </head>
 <body>
   <div class="banner">
-    <h1>Scenario 2: Joining a conversation</h1>
+    <h1>Elefriends Prototype: Joining a conversation</h1>
   </div>
   <div class="image-holder">
-    <img src="images/feed-background.jpg" />
+    <img src="images/feed-bg.jpg" />
 
     <div class="feed-column">
       <div class="post-box-holder">
-        <img id="post-box" src="images/post-box-open.png" />
+        <img id="post-box" src="images/post-box-open.jpg" />
         <div id="post-btn"></div>
       </div>
-      <img id="tabs" src="images/feed-tabs.png" />
+      <img id="tabs" src="images/feed-tabs.jpg" />
       <div id="notifier" class="refresh" style="display: none">
-        <img src="images/feed-notifier.png" />
+        <img src="images/feed-notifier.jpg" />
       </div>
-      <img id="feed" src="images/feed-standard.png" />
+      <img id="feed" src="images/feed-standard.jpg" />
 
       <div class="refresh refresh-button"></div>
     </div>
@@ -50,19 +50,24 @@
 
     var data = [
       {
-        name: '#cat',
+        name: 'depression',
         type: 'tag',
-        icon: 'http://fillmurray.com/300/300'
+        icon: 'images/tag-icon.png'
       },
       {
-        name: 'Tim',
+        name: 'Dev',
         type: 'user',
-        icon: 'http://placekitten.com/300/300'
+        icon: 'images/user-bill-small.png'
       },
       {
-        name: 'Nick',
+        name: 'dental',
+        type: 'tag',
+        icon: 'images/tag-icon.png'
+      },
+      {
+        name: 'Dave',
         type: 'bio',
-        icon: 'http://placecage.com/300/300'
+        icon: 'images/user-icon.png'
       }
     ];
 
@@ -85,8 +90,8 @@
         },
         onChooseEvent: function() {
           var value = $("#search input").getSelectedItemData();
-          if (value.name === '#cat') {
-            $('#feed').attr('src', 'images/feed-filtered.png');
+          if (value.name === 'depression') {
+            $('#feed').attr('src', 'images/feed-filtered.jpg');
             registerRefresh();
             showNotifier();
           }
@@ -113,7 +118,7 @@
     $('#post textarea').textcomplete([
       {
         match: /\B#(\w*)$/,
-        words: ['cat', 'kitten', 'caturday', 'github'],
+        words: ['depression', 'deep', 'dancing'],
         search: function (term, callback) {
             callback($.map(this.words, function (word) {
                 return word.indexOf(term) === 0 ? word : null;

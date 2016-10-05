@@ -12,15 +12,15 @@
 </head>
 <body>
   <div class="banner">
-    <h1>Scenario 3: Finding an Elefriend</h1>
+    <h1>Elefriends prototype: Finding an Elefriend</h1>
   </div>
   <div class="image-holder">
-    <img src="images/feed-background.jpg" />
+    <img src="images/feed-bg.jpg" />
 
     <div class="feed-column">
-      <img id="post-box" src="images/post-box-closed.png" />
-      <img id="tabs" src="images/feed-tabs.png" />
-      <img id="feed" src="images/feed-standard.png" />
+      <img id="post-box" src="images/post-box-closed.jpg" />
+      <img id="tabs" src="images/feed-tabs.jpg" />
+      <img id="feed" src="images/feed-standard.jpg" />
     </div>
 
     <div id="search">
@@ -39,21 +39,21 @@
       {
         name: 'Tim_1981',
         type: 'user',
-        icon: 'http://placekitten.com/300/300'
+        icon: 'images/user-bill-small.png'
+      },
+      {
+        name: 'Timothy',
+        type: 'user',
+        icon: 'images/user-icon.png'
       },
       {
         name: '#timefortea',
         type: 'tag',
-        icon: 'http://fillmurray.com/300/300'
-      },
-      {
-        name: 'Timothy',
-        type: 'bio',
-        icon: 'http://placecage.com/300/300'
+        icon: 'images/tag-icon.png'
       },
       {
         name: 'Timbo',
-        type: 'bio',
+        type: 'user',
         icon: 'http://placecage.com/300/300'
       }
     ];
@@ -78,7 +78,7 @@
         onChooseEvent: function() {
           var value = $("#search input").getSelectedItemData();
           if (value.name === '#cat') {
-            $('#feed').attr('src', 'images/feed-filtered.png');
+            $('#feed').attr('src', 'images/feed-filtered.jpg');
             registerRefresh();
             showNotifier();
           }
