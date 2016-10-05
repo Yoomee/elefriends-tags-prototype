@@ -67,11 +67,10 @@
       position: absolute;;
       display: block;
       background: red;
-      width: 454px;
-      height: 59px;
-      left: 226px;
-      top: 274px;
-
+      width: 430px;
+      height: 94px;
+      left: 240px;
+      top: 286px;
     }
     #post textarea {
       width: 100%;
@@ -79,4 +78,46 @@
       border: none;
       font-size: 14px;
       padding: 12px;
+    }
+    #post textarea:focus {
+      outline: none;
+    }
+    .post-box-holder {
+      position: relative;
+    }
+    #post-btn {
+      position: absolute;
+      width: 55px;
+      height: 30px;
+      bottom: 51px;
+      right: 69px;
+      cursor: pointer;
+    }
+
+    .post {
+      height: 131px;
+      background: url('../images/post-top.png') center 12px no-repeat;
+      box-shadow: 0px 1px 10px rgba(0,0,0,0.04),0px 1px 1px rgba(0,0,0,0.1),0px -1px 1px rgba(0,0,0,0.1);
+      border-radius: 5px;
+      margin: 8px 16px 60px 16px;
+      padding: 72px 18px 24px 98px;
+      font-size: 13px;
+      position: relative;
+    }
+
+    .post:after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 44px;
+      background: url('../images/post-bottom.png') center 0 no-repeat;
+      position: absolute;
+      bottom: -45px;
+      right: 0;
+    }
+
+    mark {
+      background: #FFCD00;
+      border-radius: 3px;
+      padding: 2px;
     }

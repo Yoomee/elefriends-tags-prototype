@@ -12,13 +12,16 @@
 </head>
 <body>
   <div class="banner">
-    <h1>Scenario 1: Finding conversations</h1>
+    <h1>Scenario 2: Joining a conversation</h1>
   </div>
   <div class="image-holder">
     <img src="images/feed-background.jpg" />
 
     <div class="feed-column">
-      <img id="post-box" src="images/post-box-closed.png" />
+      <div class="post-box-holder">
+        <img id="post-box" src="images/post-box-open.png" />
+        <div id="post-btn"></div>
+      </div>
       <img id="tabs" src="images/feed-tabs.png" />
       <div id="notifier" class="refresh" style="display: none">
         <img src="images/feed-notifier.png" />
@@ -31,7 +34,9 @@
     <div id="search">
       <input type="text" placeholder="Search for nicknames, interests or tags"  />
     </div>
-
+    <div id="post">
+      <textarea placeholder="Type something here..."></textarea>
+    </div>
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -39,6 +44,7 @@
 
   <script src="js/jquery.easy-autocomplete.min.js"></script>
   <script src="js/jquery.textcomplete.min.js"></script>
+  <script src="js/jquery.mark.min.js"></script>
 
   <script>
 
@@ -104,33 +110,39 @@
       });
     }
 
+    $('#post textarea').textcomplete([
+      {
+        match: /\B#(\w*)$/,
+        words: ['cat', 'kitten', 'caturday', 'github'],
+        search: function (term, callback) {
+            callback($.map(this.words, function (word) {
+                return word.indexOf(term) === 0 ? word : null;
+            }));
+        },
+        index: 1,
+        replace: function (word) {
+            return '#' + word + ' ';
+        }
+    }
+    ], {
+        onKeydown: function (e, commands) {
+            if (e.ctrlKey && e.keyCode === 74) { // CTRL-J
+                return commands.KEY_ENTER;
+            }
+        }
+    });
 
+    $('#post-btn').on('click', function () {
 
+      var post = $('#post textarea').val();
 
-    // $("body").on('click', '#all', function () {
-    // });
+      $('#notifier').after('<div class="post">' + post + '</div>');
 
-    // $('#post textarea').textcomplete([
-    //   {
-    //     match: /\B#(\w*)$/,
-    //     words: ['cat', 'kitten', 'caturday', 'github'],
-    //     search: function (term, callback) {
-    //         callback($.map(this.words, function (word) {
-    //             return word.indexOf(term) === 0 ? word : null;
-    //         }));
-    //     },
-    //     index: 1,
-    //     replace: function (word) {
-    //         return '#' + word + ' ';
-    //     }
-    // }
-    // ], {
-    //     onKeydown: function (e, commands) {
-    //         if (e.ctrlKey && e.keyCode === 74) { // CTRL-J
-    //             return commands.KEY_ENTER;
-    //         }
-    //     }
-    // });
+      $(".post").markRegExp(/([@]|[#])([a-z])\w+/gmi);
+
+      $('#post textarea').val('');
+    });
+
   </script>
 
 </body>
