@@ -197,16 +197,21 @@ mark {
   font-size: 13px;
   margin: -76px 0 0 0;
   padding: 0;
+  border-radius: 4px;
+  background: #eee;
 }
 
 .dropdown-menu li {
   display: block;
   margin: 4px;
   padding: 4px;
+  font-weight: bold;
+  border-radius: 4px;
 }
 
 .dropdown-menu li:hover, .dropdown-menu li.active {
-  background: #ccc;
+  background: #033579;
+  color: white;
 }
 
 .nav-btn {
