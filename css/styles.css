@@ -143,6 +143,15 @@
       cursor: pointer;
     }
 
+    #depression {
+      position: absolute;
+      width: 210px;
+      height: 78px;
+      top: 445px;
+      left: 221px;
+      cursor: pointer;
+    }
+
     .eac-item {
       padding: 4px 0;
       min-height: 44px;

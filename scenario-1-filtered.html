@@ -20,13 +20,16 @@
     <div class="feed-column">
       <img id="post-box" src="images/post-box-closed.jpg" />
       <img id="tabs" src="images/feed-tabs.jpg" />
-      <img id="feed" src="images/feed-standard.jpg" />
+      <div id="notifier" class="refresh" style="display: none">
+        <img src="images/feed-notifier.jpg" />
+      </div>
+      <img id="feed" src="images/feed-filtered.jpg" />
 
       <div class="refresh refresh-button"></div>
     </div>
 
     <div id="search">
-      <input type="text" placeholder="Search for nicknames, interests or tags"  />
+      <input type="text" placeholder="Search for nicknames, interests or tags" value="depression"  />
     </div>
 
   </div>
@@ -71,6 +74,7 @@
           return '<span class="' + item.type + '"><img src="' + item.icon + '" />' + item.name + '</span>';
         }
       },
+
       list: {
         match: {
           enabled: true
@@ -81,16 +85,31 @@
         onChooseEvent: function() {
           var value = $("#search input").getSelectedItemData();
           if (value.name === 'depression') {
-            window.location = './scenario-1b-part-2.html';
+            $('#feed').attr('src', 'images/feed-filtered.jpg');
+            registerRefresh();
+            showNotifier();
           }
         }
       }
     };
 
+    function showNotifier () {
+      setTimeout(function () {
+        $('#notifier').show();
+      }, 2000);
+    }
+
     $("#search input").easyAutocomplete(options);
 
+    function registerRefresh () {
+      $('.refresh').on('click', function () {
+        $('#feed').attr('src', 'images/feed-filtered-updated.jpg');
+        $('#notifier').hide();
+      });
+    }
+
     $("body").on('click', '#all', function () {
-      window.location = './scenario-1b-search-results.html';
+      window.location = './scenario-1-search-results.html';
     });
 
   </script>
