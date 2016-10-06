@@ -152,6 +152,15 @@ mark {
   cursor: pointer;
 }
 
+#b-depression {
+  position: absolute;
+  width: 485px;
+  height: 86px;
+  top: 458px;
+  left: 148px;
+  cursor: pointer;
+}
+
 .eac-item {
   padding: 4px 0;
   min-height: 44px;
@@ -258,4 +267,106 @@ mark {
 }
 #notifications-nav {
   right: 120px;
+}
+
+.search-filter {
+  position: absolute;
+  display: block;
+  top: 357px;
+  display: block;
+  width: 134px;
+  height: 46px;
+  cursor: pointer;
+}
+#everything {
+  left: 152px;
+}
+#tags {
+  left: 300px;
+  width: 95px;
+}
+#nicknames {
+  left: 407px;
+}
+#interests {
+  left: 551px;
+}
+#tim {
+  position: absolute;
+  display: block;
+  width: 218px;
+  height: 83px;
+  cursor: pointer;
+  left: 225px;
+}
+
+.user-link {
+  position: absolute;
+  display: block;
+  top: 665px;
+  display: block;
+  width: 275px;
+  height: 83px;
+  cursor: pointer;
+  left: 150px;
+}
+#depression-user-1 {
+  top: 551px;
+}
+#depression-user-2 {
+  top: 676px;
+}
+#depression-user-3 {
+  top: 676px;
+  left: 500px;
+}
+#depression-user-4 {
+  top: 666px;
+    left: 776px;
+}
+#depression-user-5{
+  top: 564px;
+      left: 775px;
+}
+
+.user-link-b {
+  position: absolute;
+  display: block;
+  display: block;
+  width: 500px;
+  height: 83px;
+  cursor: pointer;
+  left: 150px!important;
+}
+
+.user-link-b#depression-user-1 {
+  top: 869px
+}
+.user-link-b#depression-user-2 {
+  top: 970px;
+}
+.user-link-b#depression-user-3 {
+  top: 1170px;
+}
+.user-link-b#depression-user-4 {
+  top: 1272px;
+}
+.user-link-b#depression-user-5{
+  top: 1374px;
+}
+
+.user-link-b.interests#depression-user-1 {
+  top: 453px
+}
+.user-link-b.interests#depression-user-2 {
+  top: 555px;
+}
+.user-link-b.interests#depression-user-3 {
+  top: 655px;
+}
+.user-link-b.interests#depression-user-4 {
+  top: 755px;
+}
+.user-link-b.interests#depression-user-5{
+  top: 855px;
 }

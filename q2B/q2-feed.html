@@ -7,38 +7,35 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/easy-autocomplete.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/easy-autocomplete.css">
 </head>
 <body>
   <div class="banner">
     <h1>Elefriends Prototype: Finding conversations</h1>
   </div>
   <div class="image-holder">
-    <img src="images/feed-bg.jpg" />
+    <img src="../images/feed-bg.jpg" />
 
     <div class="feed-column">
-      <img id="post-box" src="images/post-box-closed.jpg" />
-      <img id="tabs" src="images/feed-tabs.jpg" />
-      <div id="notifier" class="refresh" style="display: none">
-        <img src="images/feed-notifier.jpg" />
-      </div>
-      <img id="feed" src="images/feed-filtered.jpg" />
+      <img id="post-box" src="../images/post-box-closed.jpg" />
+      <img id="tabs" src="../images/feed-tabs.jpg" />
+      <img id="feed" src="../images/feed-standard.jpg" />
 
       <div class="refresh refresh-button"></div>
     </div>
 
     <div id="search">
-      <input type="text" placeholder="Search for nicknames, interests or tags" value="depression"  />
+      <input type="text" placeholder="Search for nicknames, interests or tags"  />
     </div>
 
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
+  <script>window.jQuery || document.write('<script src="../js/jquery-1.11.2.min.js"><\/script>')</script>
 
-  <script src="js/jquery.easy-autocomplete.min.js"></script>
-  <script src="js/jquery.textcomplete.min.js"></script>
+  <script src="../js/jquery.easy-autocomplete.min.js"></script>
+  <script src="../js/jquery.textcomplete.min.js"></script>
 
   <script>
 
@@ -46,22 +43,22 @@
       {
         name: 'depression',
         type: 'tag',
-        icon: 'images/tag-icon.png'
+        icon: '../images/tag-icon.png'
       },
       {
         name: 'Dev',
         type: 'user',
-        icon: 'images/user-bill-small.png'
+        icon: '../images/user-bill-small.png'
       },
       {
         name: 'dental',
         type: 'tag',
-        icon: 'images/tag-icon.png'
+        icon: '../images/tag-icon.png'
       },
       {
         name: 'Dave',
         type: 'bio',
-        icon: 'images/user-icon.png'
+        icon: '../images/user-icon.png'
       }
     ];
 
@@ -74,7 +71,6 @@
           return '<span class="' + item.type + '"><img src="' + item.icon + '" />' + item.name + '</span>';
         }
       },
-
       list: {
         match: {
           enabled: true
@@ -85,31 +81,16 @@
         onChooseEvent: function() {
           var value = $("#search input").getSelectedItemData();
           if (value.name === 'depression') {
-            $('#feed').attr('src', 'images/feed-filtered.jpg');
-            registerRefresh();
-            showNotifier();
+            window.location = 'q2-feed-filtered.html';
           }
         }
       }
     };
 
-    function showNotifier () {
-      setTimeout(function () {
-        $('#notifier').show();
-      }, 2000);
-    }
-
     $("#search input").easyAutocomplete(options);
 
-    function registerRefresh () {
-      $('.refresh').on('click', function () {
-        $('#feed').attr('src', 'images/feed-filtered-updated.jpg');
-        $('#notifier').hide();
-      });
-    }
-
     $("body").on('click', '#all', function () {
-      window.location = './scenario-1-search-results.html';
+      window.location = 'q2-search-results.html';
     });
 
   </script>

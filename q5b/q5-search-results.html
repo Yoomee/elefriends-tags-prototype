@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/easy-autocomplete.css">
+</head>
+<body>
+  <div class="banner">
+    <h1>Elefriends Prototype: Finding conversations</h1>
+  </div>
+  <div class="image-holder">
+    <img id="search-bg" src="../images/search-2-depression.jpg" />
+
+
+    <div class="search-filter" id="everything"></div>
+    <div class="search-filter" id="tags"></div>
+    <div class="search-filter" id="nicknames"></div>
+    <div class="search-filter" id="interests"></div>
+
+    <div class="user-link-b" id="depression-user-1"></div>
+    <div class="user-link-b" id="depression-user-2"></div>
+    <div class="user-link-b" id="depression-user-3"></div>
+    <div class="user-link-b" id="depression-user-4"></div>
+    <div class="user-link-b" id="depression-user-5"></div>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../js/jquery-1.11.2.min.js"><\/script>')</script>
+  <script>
+
+    $("body").on('click', '.user-link-b', function () {
+      window.location = 'q5-profile.html';
+    });
+
+    $("body").on('click', '#everything', function () {
+      $('#search-bg').attr('src', '../images/search-2-depression.jpg');
+      $('.user-link-b').show().removeClass('interests');;
+    });
+
+    $("body").on('click', '#tags', function () {
+      $('#search-bg').attr('src', '../images/search-2-depression-tags.jpg');
+
+      $('.user-link-b').hide();
+    });
+
+    $("body").on('click', '#nicknames', function () {
+      $('#search-bg').attr('src', '../images/search-2-depression-nicknames.jpg');
+    });
+
+    $("body").on('click', '#interests', function () {
+      $('#search-bg').attr('src', '../images/search-2-depression-interests.jpg');
+      $('.user-link-b').show().addClass('interests');
+    });
+
+  </script>
+
+</body>
+</html>

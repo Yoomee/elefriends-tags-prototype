@@ -7,55 +7,61 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/easy-autocomplete.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/easy-autocomplete.css">
 </head>
 <body>
   <div class="banner">
     <h1>Elefriends Prototype: Finding conversations</h1>
   </div>
   <div class="image-holder">
-    <img src="images/feed-bg.jpg" />
+    <img src="../images/feed-bg.jpg" />
 
     <div class="feed-column">
-      <img id="header" src="images/feed-filtered-header.jpg" />
-      <img id="post-box" src="images/post-box-small-closed.jpg" />
+      <img id="post-box" src="../images/post-box-closed.jpg" />
+      <img id="tabs" src="../images/feed-tabs.jpg" />
       <div id="notifier" class="refresh" style="display: none">
-        <img src="images/feed-notifier.jpg" />
+        <img src="../images/feed-notifier.jpg" />
       </div>
-      <img id="feed" src="images/feed-filtered.jpg" />
+      <img id="feed" src="../images/feed-filtered.jpg" />
 
-      <div class="refresh refresh-button refresh-button-2"></div>
+      <div class="refresh refresh-button"></div>
     </div>
 
     <div id="search">
-      <input type="text" placeholder="Search for nicknames, interests or tags"  />
+      <input type="text" placeholder="Search for nicknames, interests or tags" value="depression"  />
     </div>
+
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
+  <script>window.jQuery || document.write('<script src="../js/jquery-1.11.2.min.js"><\/script>')</script>
 
-  <script src="js/jquery.easy-autocomplete.min.js"></script>
-  <script src="js/jquery.textcomplete.min.js"></script>
+  <script src="../js/jquery.easy-autocomplete.min.js"></script>
+  <script src="../js/jquery.textcomplete.min.js"></script>
 
   <script>
 
     var data = [
       {
-        name: '#cat',
+        name: 'depression',
         type: 'tag',
-        icon: 'http://fillmurray.com/300/300'
+        icon: '../images/tag-icon.png'
       },
       {
-        name: 'Tim',
+        name: 'Dev',
         type: 'user',
-        icon: 'http://placekitten.com/300/300'
+        icon: '../images/user-bill-small.png'
       },
       {
-        name: 'Nick',
+        name: 'dental',
+        type: 'tag',
+        icon: '../images/tag-icon.png'
+      },
+      {
+        name: 'Dave',
         type: 'bio',
-        icon: 'http://placecage.com/300/300'
+        icon: '../images/user-icon.png'
       }
     ];
 
@@ -68,25 +74,24 @@
           return '<span class="' + item.type + '"><img src="' + item.icon + '" />' + item.name + '</span>';
         }
       },
+
       list: {
         match: {
           enabled: true
         },
         onLoadEvent: function () {
-          console.log('load');
           $('.easy-autocomplete-container ul').append('<li id="all"><a href="#">Not what you\'re looking for? <span>See more results</span></a></li>');
         },
         onChooseEvent: function() {
           var value = $("#search input").getSelectedItemData();
-          if (value.name === '#cat') {
-            window.location = './scenario-1b-part-2.html';
+          if (value.name === 'depression') {
+            $('#feed').attr('src', '../images/feed-filtered.jpg');
+            registerRefresh();
+            showNotifier();
           }
         }
       }
     };
-
-    registerRefresh();
-    showNotifier();
 
     function showNotifier () {
       setTimeout(function () {
@@ -94,15 +99,18 @@
       }, 2000);
     }
 
-
     $("#search input").easyAutocomplete(options);
 
     function registerRefresh () {
       $('.refresh').on('click', function () {
-        $('#feed').attr('src', 'images/feed-filtered-updated.jpg');
+        $('#feed').attr('src', '../images/feed-filtered-updated.jpg');
         $('#notifier').hide();
       });
     }
+
+    $("body").on('click', '#all', function () {
+      window.location = 'q2-search-results.html';
+    });
 
   </script>
 

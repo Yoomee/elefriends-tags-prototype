@@ -7,20 +7,20 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/easy-autocomplete.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/easy-autocomplete.css">
 </head>
 <body>
   <div class="banner">
     <h1>Elefriends prototype: Finding an Elefriend</h1>
   </div>
   <div class="image-holder">
-    <img src="images/feed-bg.jpg" />
+    <img src="../images/feed-bg.jpg" />
 
     <div class="feed-column">
-      <img id="post-box" src="images/post-box-closed.jpg" />
-      <img id="tabs" src="images/feed-tabs.jpg" />
-      <img id="feed" src="images/feed-standard.jpg" />
+      <img id="post-box" src="../images/post-box-closed.jpg" />
+      <img id="tabs" src="../images/feed-tabs.jpg" />
+      <img id="feed" src="../images/feed-standard.jpg" />
     </div>
 
     <div id="search">
@@ -30,8 +30,8 @@
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
-  <script src="js/jquery.easy-autocomplete.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../js/jquery-1.11.2.min.js"><\/script>')</script>
+  <script src="../js/jquery.easy-autocomplete.min.js"></script>
 
   <script>
 
@@ -39,17 +39,17 @@
       {
         name: 'Tim_1981',
         type: 'user',
-        icon: 'images/user-bill-small.png'
+        icon: '../images/user-bill-small.png'
       },
       {
         name: 'Timothy',
         type: 'user',
-        icon: 'images/user-icon.png'
+        icon: '../images/user-icon.png'
       },
       {
         name: '#timefortea',
         type: 'tag',
-        icon: 'images/tag-icon.png'
+        icon: '../images/tag-icon.png'
       },
       {
         name: 'Timbo',
@@ -78,7 +78,7 @@
         onChooseEvent: function() {
           var value = $("#search input").getSelectedItemData();
           if (value.name === '#cat') {
-            $('#feed').attr('src', 'images/feed-filtered.jpg');
+            $('#feed').attr('src', '../images/feed-filtered.jpg');
             registerRefresh();
             showNotifier();
           }
@@ -90,7 +90,7 @@
 
 
     $("body").on('click', '#all', function () {
-      window.location = './scenario-3-part-2.html';
+      window.location = 'q4-search-results.html';
     });
 
 
