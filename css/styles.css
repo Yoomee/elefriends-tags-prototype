@@ -274,22 +274,21 @@ mark {
   display: block;
   top: 357px;
   display: block;
-  width: 134px;
-  height: 46px;
+  width: 122px;
+  height: 45px;
   cursor: pointer;
 }
 #everything {
-  left: 152px;
+  left: 167px;
 }
 #tags {
-  left: 300px;
-  width: 95px;
+  left: 304px;
 }
 #nicknames {
-  left: 407px;
+  left: 440px;
 }
 #interests {
-  left: 551px;
+  left: 575px;
 }
 #tim {
   position: absolute;
