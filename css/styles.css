@@ -222,11 +222,8 @@ mark {
   cursor: pointer;
 }
 #home-btn {
-  right: 426px;
+  right: 334px;
   width: 102px;
-}
-#help-btn {
-  right: 336px;
 }
 #info-btn {
   right: 242px;
