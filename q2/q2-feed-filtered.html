@@ -102,7 +102,9 @@
     $("#search input").easyAutocomplete(options);
 
     function registerRefresh () {
+      console.log('r')
       $('.refresh').on('click', function () {
+        console.log('click')
         $('#feed').attr('src', '../images/feed-filtered-updated.jpg');
         $('#notifier').hide();
       });
@@ -110,6 +112,11 @@
 
     $("body").on('click', '#all', function () {
       window.location = 'q2-search-results.html';
+    });
+
+    $('document').ready(function () {
+      registerRefresh();
+      showNotifier();
     });
 
   </script>

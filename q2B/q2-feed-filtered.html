@@ -90,8 +90,6 @@
       }
     };
 
-    registerRefresh();
-    showNotifier();
 
     function showNotifier () {
       setTimeout(function () {
@@ -112,6 +110,12 @@
     $("body").on('click', '#all', function () {
       window.location = 'q2-search-results.html';
     });
+
+    $('document').ready(function () {
+      registerRefresh();
+      showNotifier();
+    });
+
 
   </script>
 
